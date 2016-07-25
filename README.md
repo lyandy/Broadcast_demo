@@ -1,11 +1,11 @@
 # Broadcast_demo
-One demo to show how to implement video broadcast
+One demo to show how to implement video broadcast And how to configure RTMP server on Linux
 
 ### __Reference__
 
 * __IJKMediaFramework__
 
-  We use this framework to pull RTMP video stream.
+  We use this framework to pull RTMP video stream. You need to compile the framework by its source codes. You can also download it that I have compiled from [this link](http://pan.baidu.com/s/1gf9Fajp).
 
 * __LFLiveKit__
 
@@ -14,9 +14,9 @@ One demo to show how to implement video broadcast
 
 ---
 
-### Server Configure in Linux
+### Server Configure on Linux
 
-_ The linux version is Ubuntu lastest released _
+_The linux version is Ubuntu lastest released_
 
 `sudo -i`
 
@@ -87,7 +87,7 @@ _Start ngnix server_
 
 ---
 
-### __You can also refer to these artical and git repositories below__
+### __You can also refer to these articals and git repositories below__
 
 * [快速集成iOS基于RTMP的视频推流](http://www.jianshu.com/p/8ea016b2720e)
 
@@ -100,7 +100,7 @@ _Start ngnix server_
 
 ### __Attention__
 
-* When you pod `ReactiveCocoa` framework in Object-C project , the `LFLiveKit` framework fail to compile. More info just refer this issue discussion __[pod 引入 ReactiveCocoa 的时候，LFLiveKit编译失败 #18](https://github.com/LaiFengiOS/LFLiveKit/issues/18)__
+* When you pod `ReactiveCocoa` framework in Object-C project , the `LFLiveKit` framework failed to compile. More info just refer this issue discussion __[pod 引入 ReactiveCocoa 的时候，LFLiveKit编译失败 #18](https://github.com/LaiFengiOS/LFLiveKit/issues/18)__
 
 * If you use CentOS or SuseOS as your lunix server, you need install gcc module addtionally. So please check before you install just as command `gcc --version`
 
