@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  Broadcast_demo
+//
+//  Created by 李扬 on 16/7/20.
+//  Copyright © 2016年 andyli. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// 3.自定义Log
+#ifdef DEBUG
+#define AndyLog(...) NSLog(__VA_ARGS__)
+#else
+#define AndyLog(...)
+#endif
+
+#define Color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define AndyColor Color(216, 41, 116)
+
+#ifdef __OBJC__
+
+#import "Global.h"
+
+#endif
+
+#endif /* PrefixHeader_pch */
