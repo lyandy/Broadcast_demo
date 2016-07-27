@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A184F3971D4905B7006C6C10 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184F3961D4905B7006C6C10 /* IJKMediaFramework.framework */; };
 		AA3489A882C1CC23659A764D /* libPods-Broadcast_demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A585424DD3D733A557DCF00 /* libPods-Broadcast_demo.a */; };
 		B612E01D1D3F12BA00D2AAF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B612E01C1D3F12BA00D2AAF0 /* main.m */; };
 		B612E0281D3F12BA00D2AAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B612E0271D3F12BA00D2AAF0 /* Assets.xcassets */; };
@@ -19,7 +20,6 @@
 		B612E0621D3F151A00D2AAF0 /* AndyPullRTMPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B612E0601D3F151A00D2AAF0 /* AndyPullRTMPViewController.xib */; };
 		B612E0661D3F152500D2AAF0 /* AndyPushRTMPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B612E0641D3F152500D2AAF0 /* AndyPushRTMPViewController.m */; };
 		B612E0671D3F152500D2AAF0 /* AndyPushRTMPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B612E0651D3F152500D2AAF0 /* AndyPushRTMPViewController.xib */; };
-		B6694F6D1D3F2C880059932F /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6694F2A1D3F1B7B0059932F /* IJKMediaFramework.framework */; };
 		B6D96BE21D3F3069001FE276 /* SVProgressHUD+Andy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D96BE11D3F3069001FE276 /* SVProgressHUD+Andy.m */; };
 		B6D96BE51D3F5173001FE276 /* UIView+Andy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D96BE41D3F5173001FE276 /* UIView+Andy.m */; };
 		B6D96BE81D3F5370001FE276 /* UIDevice+Andy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D96BE71D3F5370001FE276 /* UIDevice+Andy.m */; };
@@ -47,6 +47,7 @@
 /* Begin PBXFileReference section */
 		0A585424DD3D733A557DCF00 /* libPods-Broadcast_demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Broadcast_demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		292E0A8A8AE274A14251F5BB /* Pods-Broadcast_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast_demo/Pods-Broadcast_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		A184F3961D4905B7006C6C10 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		B612E0181D3F12BA00D2AAF0 /* Broadcast_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Broadcast_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B612E01C1D3F12BA00D2AAF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B612E0271D3F12BA00D2AAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		B612E0651D3F152500D2AAF0 /* AndyPushRTMPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AndyPushRTMPViewController.xib; sourceTree = "<group>"; };
 		B612E0681D3F153A00D2AAF0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B612E0691D3F173400D2AAF0 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
-		B6694F2A1D3F1B7B0059932F /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		B6D96BE01D3F3069001FE276 /* SVProgressHUD+Andy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD+Andy.h"; sourceTree = "<group>"; };
 		B6D96BE11D3F3069001FE276 /* SVProgressHUD+Andy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD+Andy.m"; sourceTree = "<group>"; };
 		B6D96BE31D3F5173001FE276 /* UIView+Andy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Andy.h"; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6694F6D1D3F2C880059932F /* IJKMediaFramework.framework in Frameworks */,
 				AA3489A882C1CC23659A764D /* libPods-Broadcast_demo.a in Frameworks */,
+				A184F3971D4905B7006C6C10 /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +117,14 @@
 				0A585424DD3D733A557DCF00 /* libPods-Broadcast_demo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A184F3951D4905B7006C6C10 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				A184F3961D4905B7006C6C10 /* IJKMediaFramework.framework */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		A5893566DC63A7621E58D578 /* Pods */ = {
@@ -211,8 +219,8 @@
 		B612E0501D3F148200D2AAF0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				A184F3951D4905B7006C6C10 /* Framework */,
 				B6D96BDF1D3F303D001FE276 /* Category */,
-				B6694F291D3F1B7B0059932F /* Frameworks */,
 				B612E0511D3F148200D2AAF0 /* AppDelegate.h */,
 				B612E0521D3F148200D2AAF0 /* AppDelegate.m */,
 				B612E0691D3F173400D2AAF0 /* Global.h */,
@@ -241,14 +249,6 @@
 				B612E0651D3F152500D2AAF0 /* AndyPushRTMPViewController.xib */,
 			);
 			path = PushRTMP;
-			sourceTree = "<group>";
-		};
-		B6694F291D3F1B7B0059932F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B6694F2A1D3F1B7B0059932F /* IJKMediaFramework.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		B6D96BDF1D3F303D001FE276 /* Category */ = {
@@ -588,6 +588,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Broadcast_demo/Classes/Other/Frameworks",
+					"$(PROJECT_DIR)/Broadcast_demo/Classes/Other/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${SRCROOT}/Broadcast_demo/Classes/Other/PrefixHeader.pch";
@@ -613,6 +614,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Broadcast_demo/Classes/Other/Frameworks",
+					"$(PROJECT_DIR)/Broadcast_demo/Classes/Other/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${SRCROOT}/Broadcast_demo/Classes/Other/PrefixHeader.pch";

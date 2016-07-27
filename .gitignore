@@ -20,6 +20,7 @@ xcuserdata/
 ## Other
 *.moved-aside
 *.xcuserstate
+IJKMediaFramework.framework
 
 ## Obj-C/Swift specific
 *.hmap
@@ -58,3 +59,7 @@ fastlane/screenshots
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+*.pbxproj
+
+*.pbxproj
