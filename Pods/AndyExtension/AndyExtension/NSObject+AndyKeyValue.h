@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (AndyKeyValue)
-
+@protocol AndyKeyValue <NSObject>
+@optional
 + (NSDictionary *)andy_replacedKeyFromPropertyName;
 
 + (NSDictionary *)andy_objectClassInArray;
+@end
+
+@interface NSObject (AndyKeyValue)<AndyKeyValue>
 
 /**
  *  通过一个文件(不仅限于plist文件类型)来创建一个对象
@@ -37,7 +40,6 @@
 + (NSArray *)andy_objectArrayWithString:(NSString *)jsonString;
 
 + (NSArray *)andy_objectArrayWithKeyValuesArray:(NSArray *)keyValuesArray;
-
 
 
 - (NSString *)andy_JSONString;

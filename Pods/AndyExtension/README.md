@@ -1,6 +1,8 @@
 # AndyExtension
 A fast, convenient and nonintrusive conversion for JSON to model. Your model class don't need to extend another base class. You don't need to modify any model file.
 
+__use in pod:__ _pod 'AndyExtension'_
+
 _AnyExtionsion aimed to Combine JSON to Model easily._
 
 ---
@@ -74,8 +76,6 @@ _AnyExtionsion aimed to Combine JSON to Model easily._
 
 #### _**Tips:**_
 
-- Two cautions in AndyExtesion, please ignore.That‘s what I imply to use. I’ll fix them in the coming versions.
-
 - Before you run, you need pod install first.(Since I use RAC and Masonry to reduce my codes.)
 
 ---
@@ -84,7 +84,7 @@ _AnyExtionsion aimed to Combine JSON to Model easily._
 
 #### __*The last:*__
 
-_The version is 1.0.2_
+_The version is 1.0.3_
 
 _There are a lot of experience to improve_
 

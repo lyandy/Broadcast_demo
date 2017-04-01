@@ -48,7 +48,7 @@
 {
     //不要再次调用此方法，因为方法替换后是andy_setNilValueForKey:，此方法存有应用崩溃的代码
     //[self andy_setNilValueForKey:key];
-    NSLog(@"出错了，杜蕾斯拦截: %s", __func__);
+    NSAssert(NO, @"%s KVC set 方法传入的value为nil，对应的 key:%@", __func__ ,key);
 }
 
 //拦截因为key为nil导致的崩溃
@@ -56,8 +56,8 @@
 {
     //不要再次调用此方法，因为方法替换后是setValue:forUndefinedKey:，此方法存有应用崩溃的代码
     //[self andy_setValue:value forUndefinedKey:key];
-    
-    NSLog(@"出错了，杜蕾斯拦截: %s", __func__);
+
+    NSAssert(NO, @"%s KVC set 方法传入的 key:%@ 未定义", __func__, key);
 }
 
 ////拦截 对象方法 没有实现导致的崩溃

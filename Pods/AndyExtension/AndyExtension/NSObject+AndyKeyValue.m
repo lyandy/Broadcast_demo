@@ -7,7 +7,11 @@
 //
 
 #import "NSObject+AndyKeyValue.h"
+#import "NSObject+AndyProperty.h"
+#import "NSObject+AndyProperty.h"
+#import "AndyProperty.h"
 #import "AndyFoundation.h"
+#import "AndyExtensionConst.h"
 #import <objc/message.h>
 
 @implementation NSObject (AndyKeyValue)
@@ -41,27 +45,24 @@
 
 + (instancetype)andy_objectWithKeyValues:(NSDictionary *)keyValues
 {
+    AndyExtensionAssert([keyValues isKindOfClass:[NSDictionary class]], @"keyValues参数不是一个字典");
+    
     NSDictionary *dict = keyValues;
     
     id objc = [[self alloc] init];
     
-    unsigned int count = 0;
-    Ivar *ivarList = class_copyIvarList(self, &count);
-    for (int i = 0 ; i < count; i++) {
-        // 获取成员属性
-        Ivar ivar = ivarList[i];
-        
-        // 获取成员名
-        NSString *propertyName = [NSString stringWithUTF8String:ivar_getName(ivar)];
-
+    Class clazz = [self class];
+    
+    [clazz andy_enumerateProperties:^(AndyProperty *property, BOOL *stop) {
         // 获取key
-        NSString *key = [propertyName substringFromIndex:1];
+        NSString *key = property.name;
         
         // 获取字典的value
         id value = dict[key];
         //如果value为nil的话，就去andy_replacedKeyFromPropertyName方法里找有没有实现对应的
         if (value == nil)
         {
+            //这里实际上应该用 respondsToSelector 判断一下是否实现了，当然这里我采用了runtime的动态添加方法 andy_resolveClassMethod 来解决的
             NSDictionary *replacedKeyDict = [self andy_replacedKeyFromPropertyName];
             if (replacedKeyDict != nil)
             {
@@ -80,17 +81,9 @@
         
         // 给模型的属性赋值
         // 成员属性类型
-        NSString *propertyType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
+        NSString *propertyType = property.typeStr;
         // 值是字典,成员属性的类型不是字典,才需要转换成模型
         if ([value isKindOfClass:[NSDictionary class]] && ![propertyType containsString:@"NS"]) {
-            // 需字典转换成模型
-            // 转换成哪个类型
-            // 字符串截取
-            NSRange range = [propertyType rangeOfString:@"\""];
-            propertyType = [propertyType substringFromIndex:range.location + range.length];
-            range = [propertyType rangeOfString:@"\""];
-            propertyType = [propertyType substringToIndex:range.location];
-            
             // 获取需要转换类的类对象
             Class modelClass =  NSClassFromString(propertyType);
             
@@ -102,6 +95,7 @@
         else if ([value isKindOfClass:[NSArray class]])
         {
             //如果已经andy_objectClassInArray方法，指定数据里的数据类型
+            //这里实际上应该用 respondsToSelector 判断一下是否实现了，当然这里我采用了runtime的动态添加方法 andy_resolveClassMethod 来解决的
             NSDictionary *replacedArrayModelDict = [self andy_objectClassInArray];
             if (replacedArrayModelDict != nil)
             {
@@ -117,7 +111,7 @@
                 {
                     replacedModelClass = replacedValue;
                 }
-
+                
                 //如果找到 数据 里的数据模型类型
                 if (replacedModelClass != nil)
                 {
@@ -134,13 +128,11 @@
             // KVC赋值:不能传空. 万一出现空值则有杜蕾斯拦截错误，不会崩溃
             [objc setValue:value forKey:key];
         }
-    }
+
+    }];
     
     return objc;
-
 }
-
-
 
 + (NSArray *)andy_objectArrayWithFileName:(NSString *)fileName
 {
@@ -174,7 +166,8 @@
 {
     NSMutableArray *arrM = [NSMutableArray array];
     
-    for (NSDictionary *modelDict in keyValuesArray) {
+    for (NSDictionary *modelDict in keyValuesArray)
+    {
         [arrM addObject:[self andy_objectWithKeyValues:modelDict]];
     };
     
@@ -241,19 +234,12 @@
     
     NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
     
-    Class classSelf = [self class];
+    Class clazz = [self class];
     
-    unsigned int count = 0;
-    Ivar *ivarList = class_copyIvarList(classSelf, &count);
-    for (int i = 0 ; i < count; i++) {
-        // 获取成员属性
-        Ivar ivar = ivarList[i];
-        
-        // 获取成员名
-        NSString *propertyName = [NSString stringWithUTF8String:ivar_getName(ivar)];
+    [clazz andy_enumerateProperties:^(AndyProperty *property, BOOL *stop) {
         
         // 获取key
-        NSString *key = [propertyName substringFromIndex:1];
+        NSString *key = property.name;
         
         // 获取字典的value
         id value = [self valueForKey:key];
@@ -273,8 +259,9 @@
         }
         
         dictM[key] = value;
-    }
-    
+
+    }];
+
     return [dictM copy];
 }
 

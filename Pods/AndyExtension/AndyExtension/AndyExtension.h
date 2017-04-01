@@ -10,6 +10,7 @@
 #define AndyExtension_h
 
 #import "NSObject+AndyKeyValue.h"
-#import "NSObject+AndyDurex.h"
+#import "NSObject+AndyProperty.h"
+//#import "NSObject+AndyDurex.h"
 
 #endif /* AndyExtension_h */
